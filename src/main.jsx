@@ -139,11 +139,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <div>
               ingredients:
               <ul className='ingredients'>
-                <li>{restaurants[2].menu[2].ingredients[0]}</li>
-                <li>{restaurants[2].menu[2].ingredients[1]}</li>
+                <li>{restaurants[2].menu[1].ingredients[0]}</li>
+                <li>{restaurants[2].menu[1].ingredients[1]}</li>
               </ul>
             </div>
-            <div>price: {restaurants[2].menu[2].price}</div>
+            <div>price: {restaurants[2].menu[1].price}</div>
           </div>
 
           <div className='menuContent'>
@@ -154,7 +154,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <li>{restaurants[2].menu[2].ingredients[0]}</li>
               </ul>
             </div>
-            <div>price: {restaurants[2].menu[1].price}</div>
+            <div>price: {restaurants[2].menu[2].price}</div>
           </div>
         </div>
 
