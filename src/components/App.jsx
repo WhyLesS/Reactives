@@ -5,15 +5,15 @@ import { useCounters } from "../hooks/useCounters";
 import { useState } from "react";
 
 export const App = () => {
-    const [restaurantNow, setRestaurantNow] = useState(restaurants.length ? restaurants[0]: null);
+    const [restaurant, setRestaurant] = useState(restaurants.length ? restaurants[0]: null);
 
-    const menuItems = restaurantNow?.menu || [];
+    const menuItems = restaurant?.menu;
     const {counters, increment, decrement, update} = useCounters(menuItems);
     
     function changeRestaurant(restId) {
         const nextRestaurant = restaurants.find((r) => r.id === restId);
         update(nextRestaurant.menu);
-        setRestaurantNow(nextRestaurant);
+        setRestaurant(nextRestaurant);
     }
 
     return (
@@ -31,7 +31,7 @@ export const App = () => {
                     </div>
                 )}
                 <Restaurant 
-                    restaurantNow={restaurantNow}
+                    restaurantNow={restaurant}
                     counters={counters}
                     increment={increment}
                     decrement={decrement}/>
