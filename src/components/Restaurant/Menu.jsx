@@ -2,7 +2,9 @@ import { useCounters } from '../../hooks/useCounters';
 import '../../index.css';
 
 export const Menu = ({ menu }) => {
-    const { counters, increment, decrement } = useCounters(menu);
+    const { counters, increment, decrement } = useCounters(
+        menu.length ? menu.length : 0
+    );
 
     return (
         <div className="menu">
@@ -16,9 +18,11 @@ export const Menu = ({ menu }) => {
                         <div>
                             ingredients:
                             <ul className="ingredients">
-                                {item.ingredients.map((ingredient) => (
+                                {item.ingredients.map((ingredient, index) => (
                                     <>
-                                        <li>{ingredient}</li>
+                                        <li key={menu.id + index}>
+                                            {ingredient}
+                                        </li>
                                     </>
                                 ))}
                             </ul>

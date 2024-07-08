@@ -1,14 +1,11 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
-export const useCounters = (initMenus) => {
-    const initialCounters = (menus) =>
-        menus.map(() => {
-            return { count: 0 };
-        });
+export const useCounters = (itemsNumber) => {
+    const [counters, setCounters] = useState(() =>
+        Array.from({ length: itemsNumber }, () => ({ count: 0 }))
+    );
 
-    const [counters, setCounters] = useState(initialCounters(initMenus));
-
-    const increment = (index) => {
+    const increment = useCallback((index) => {
         setCounters((prevCounters) => {
             const newCounters = [...prevCounters];
             newCounters[index] = {
@@ -17,9 +14,9 @@ export const useCounters = (initMenus) => {
             };
             return newCounters;
         });
-    };
+    }, []);
 
-    const decrement = (index) => {
+    const decrement = useCallback((index) => {
         setCounters((prevCounters) => {
             const newCounters = [...prevCounters];
             newCounters[index] = {
@@ -28,7 +25,11 @@ export const useCounters = (initMenus) => {
             };
             return newCounters;
         });
-    };
+    }, []);
 
-    return { counters, increment, decrement };
+    const reset = useCallback(() => {
+        setCounters(Array.from({ length: itemsNumber }, () => ({ count: 0 })));
+    }, [itemsNumber]);
+
+    return { counters, increment, decrement, reset };
 };
