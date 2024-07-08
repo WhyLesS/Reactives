@@ -1,22 +1,17 @@
 import { Menu } from './Menu';
 import { Review } from './Review';
-import '../../index.css'
+import '../../index.css';
 
-export const Restaurant = ({ restaurantNow, counters, increment, decrement}) => {
-
+export const Restaurant = ({ restaurant }) => {
     return (
         <div>
-            {restaurantNow && restaurantNow.menu && restaurantNow.menu.length > 0 ? (
-                <div className='mainContenet'>
-                    <div className='names'> 
-                        {restaurantNow.name}
-                        <Menu 
-                            menu={restaurantNow.menu}
-                            counters={counters}
-                            increment={increment}
-                            decrement={decrement}/>
-                        
-                        <Review reviews={restaurantNow.reviews}/>
+            {restaurant && restaurant.menu && restaurant.menu.length > 0 ? (
+                <div className="mainContenet">
+                    <div className="names">
+                        {restaurant.name}
+                        <Menu menu={restaurant.menu} />
+
+                        <Review reviews={restaurant.reviews} />
                     </div>
                 </div>
             ) : (

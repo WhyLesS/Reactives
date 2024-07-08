@@ -1,37 +1,37 @@
-.restaurants{
-  font-size: 40px;
-  font-weight: bolder;
+.restaurants {
+    font-size: 40px;
+    font-weight: bolder;
 }
-.mainContenet{
-  display: flex;
+.mainContenet {
+    display: flex;
 }
-.names{
-  max-width: 600px;
-  min-width: 250px;
-  font-size: 30px;
-  font-weight: bold;
+.names {
+    max-width: 600px;
+    min-width: 250px;
+    font-size: 30px;
+    font-weight: bold;
 }
-.menu{
-  font-size: 25px;
-  margin-left: 20px;
+.menu {
+    font-size: 25px;
+    margin-left: 20px;
 }
-.menuContent{
-  font-size: 20px;
-  margin-top: 10px;
-  font-weight: normal;
+.menuContent {
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: normal;
 }
-.ingredients{
-  margin-left: 10px;
-  font-size: 17px;
-  font-weight: lighter;
+.ingredients {
+    margin-left: 10px;
+    font-size: 17px;
+    font-weight: lighter;
 }
-.reviews{
-  font-size: 25px;
-  margin-left: 20px;
-  margin-top: 10px;
+.reviews {
+    font-size: 25px;
+    margin-left: 20px;
+    margin-top: 10px;
 }
-.reviewsContent{
-  font-size: 20px;
-  margin-top: 10px;
-  font-weight: normal;
+.reviewsContent {
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: normal;
 }
