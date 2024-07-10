@@ -2,6 +2,8 @@ import { Layout } from './Layout';
 import { Restaurant } from './Restaurant/Restaurant';
 import { restaurants } from '../../materials/mock';
 import { useState } from 'react';
+import { ProgressBar } from './progress-bar';
+import './app.css';
 
 export const App = () => {
     const [restaurant, setRestaurant] = useState(
@@ -15,6 +17,7 @@ export const App = () => {
 
     return (
         <div>
+            <ProgressBar />
             <Layout>
                 {restaurants.length ? (
                     restaurants.map((rest) => (
@@ -28,7 +31,7 @@ export const App = () => {
                 ) : (
                     <div>Empty Restaurant</div>
                 )}
-                <Restaurant restaurant={restaurant} />
+                <Restaurant key={restaurant.id} restaurant={restaurant} />
             </Layout>
         </div>
     );
