@@ -1,5 +1,5 @@
-import { useEffect, useReducer } from 'react';
-import { useCounters } from '../../hooks/useCounters';
+import { useReducer } from 'react';
+import { Counter } from './counter/Counter';
 
 const INITIAL_FORM = {
     user: '',
@@ -7,14 +7,19 @@ const INITIAL_FORM = {
     rating: 0,
 };
 
+const min = 0;
+const max = 5;
+
 function reducer(state, { type, payload }) {
     switch (type) {
         case 'setUser':
             return { ...state, user: payload };
         case 'setText':
             return { ...state, text: payload };
-        case 'setRating':
-            return { ...state, rating: payload };
+        case 'incrementRating':
+            return { ...state, rating: Math.min(state.rating + 1, max) };
+        case 'decrementRating':
+            return { ...state, rating: Math.max(state.rating - 1, min) };
         case 'clear':
             return INITIAL_FORM;
         case 'save':
@@ -31,15 +36,7 @@ const useForm = (initialValue) => {
 
 export const ReviewForm = () => {
     const [form, dispatch] = useForm(INITIAL_FORM);
-    const { counters, increment, decrement, reset } = useCounters(1);
     const { user, text, rating } = form;
-
-    useEffect(() => {
-        dispatch({
-            type: 'setRating',
-            payload: counters[0].count,
-        });
-    }, [counters[0].count]);
 
     return (
         <div>
@@ -68,27 +65,15 @@ export const ReviewForm = () => {
                 />
             </div>
             <div>
-                <span>Rating</span>
-                <button onClick={() => increment(0)}>❤️</button>
-                <span>{rating}</span>
-                <button onClick={() => decrement(0)}>💔</button>
+                <span>Rating {rating}</span>
+                <Counter
+                    count={rating}
+                    increment={() => dispatch({ type: 'incrementRating' })}
+                    decrement={() => dispatch({ type: 'decrementRating' })}
+                />
             </div>
-            <button
-                onClick={() => {
-                    reset();
-                    return dispatch({ type: 'save' });
-                }}
-            >
-                Save
-            </button>
-            <button
-                onClick={() => {
-                    reset();
-                    return dispatch({ type: 'clear' });
-                }}
-            >
-                Clear
-            </button>
+            <button onClick={() => dispatch({ type: 'save' })}>Save</button>
+            <button onClick={() => dispatch({ type: 'clear' })}>Clear</button>
         </div>
     );
 };

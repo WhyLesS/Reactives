@@ -1,11 +1,6 @@
-import { useCounters } from '../../hooks/useCounters';
-import '../../index.css';
+import { CounterContainer } from './counter/counter-container';
 
 export const Menu = ({ menu }) => {
-    const { counters, increment, decrement } = useCounters(
-        menu.length ? menu.length : 0
-    );
-
     return (
         <div className="menu">
             <h3>Menu:</h3>
@@ -27,17 +22,7 @@ export const Menu = ({ menu }) => {
                                 ))}
                             </ul>
                         </div>
-                        {counters && (
-                            <>
-                                <button onClick={() => increment(index)}>
-                                    +
-                                </button>
-                                <span>{counters[index].count}</span>
-                                <button onClick={() => decrement(index)}>
-                                    -
-                                </button>
-                            </>
-                        )}
+                        <CounterContainer />
                     </>
                 ))}
             </div>

@@ -10,7 +10,7 @@ export const Restaurant = ({ restaurant }) => {
                 <div className="mainContenet">
                     <div className="names">
                         {restaurant.name}
-                        <Menu key={restaurant.id} menu={restaurant.menu} />
+                        <Menu menu={restaurant.menu} />
                         <Review reviews={restaurant.reviews} />
                         <ReviewForm />
                     </div>
