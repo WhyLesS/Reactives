@@ -1,9 +1,9 @@
-import { Layout } from './Layout';
-import { Restaurant } from './Restaurant/Restaurant';
+import { Layout } from './layout';
+import { Restaurant } from './Restaurant/restaurant';
 import { restaurants } from '../../materials/mock';
 import { useState } from 'react';
 import { ProgressBar } from './progress-bar';
-import './app.css';
+import styles from './app.module.css';
 
 export const App = () => {
     const [restaurant, setRestaurant] = useState(
@@ -19,18 +19,22 @@ export const App = () => {
         <div>
             <ProgressBar />
             <Layout>
-                {restaurants.length ? (
-                    restaurants.map((rest) => (
-                        <button
-                            key={rest.id}
-                            onClick={() => changeRestaurant(rest.id)}
-                        >
-                            {rest.name}
-                        </button>
-                    ))
-                ) : (
-                    <div>Empty Restaurant</div>
-                )}
+                <div className={styles.tabContainer}>
+                    {restaurants.length ? (
+                        restaurants.map((rest) => (
+                            <button
+                                disabled={rest.id === restaurant.id}
+                                className={styles.tabButtons}
+                                key={rest.id}
+                                onClick={() => changeRestaurant(rest.id)}
+                            >
+                                <div>{rest.name}</div>
+                            </button>
+                        ))
+                    ) : (
+                        <div>Empty Restaurant</div>
+                    )}
+                </div>
                 <Restaurant key={restaurant.id} restaurant={restaurant} />
             </Layout>
         </div>

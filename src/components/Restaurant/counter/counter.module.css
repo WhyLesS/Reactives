@@ -1,0 +1,12 @@
+.counterContainer {
+    text-align: center;
+}
+
+.buttonsContainer {
+    display: flex;
+}
+
+.counterButton {
+    width: 100%;
+    background-color: #ACCBC3;
+}

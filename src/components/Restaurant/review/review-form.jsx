@@ -1,5 +1,6 @@
 import { useReducer } from 'react';
-import { Counter } from './counter/Counter';
+import { Counter } from '../counter/Counter';
+import styles from './review.module.css';
 
 const INITIAL_FORM = {
     user: '',
@@ -39,9 +40,10 @@ export const ReviewForm = () => {
     const { user, text, rating } = form;
 
     return (
-        <div>
+        <div className={styles.reviewFormContainer}>
+            Add your comment here!
             <div>
-                <span>User</span>
+                <div>User</div>
                 <input
                     value={user}
                     onChange={(event) => {
@@ -53,8 +55,9 @@ export const ReviewForm = () => {
                 />
             </div>
             <div>
-                <span>Text</span>
+                <div>Text</div>
                 <input
+                    className={styles.inputForText}
                     value={text}
                     onChange={(event) => {
                         dispatch({
@@ -64,16 +67,26 @@ export const ReviewForm = () => {
                     }}
                 />
             </div>
-            <div>
-                <span>Rating {rating}</span>
+            <div className={styles.counterContainer}>
+                <span>Rate this restaurant!</span>
                 <Counter
                     count={rating}
                     increment={() => dispatch({ type: 'incrementRating' })}
                     decrement={() => dispatch({ type: 'decrementRating' })}
                 />
+                <button
+                    className={styles.button}
+                    onClick={() => dispatch({ type: 'save' })}
+                >
+                    Save
+                </button>
+                <button
+                    className={styles.button}
+                    onClick={() => dispatch({ type: 'clear' })}
+                >
+                    Clear
+                </button>
             </div>
-            <button onClick={() => dispatch({ type: 'save' })}>Save</button>
-            <button onClick={() => dispatch({ type: 'clear' })}>Clear</button>
         </div>
     );
 };

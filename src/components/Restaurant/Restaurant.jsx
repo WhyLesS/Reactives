@@ -1,6 +1,6 @@
-import { Menu } from './Menu';
-import { Review } from './Review';
-import { ReviewForm } from './ReviewForm';
+import { Menu } from './menu/menu';
+import { Review } from './review/review';
+import { ReviewForm } from './review/review-form';
 import '../../index.css';
 
 export const Restaurant = ({ restaurant }) => {
@@ -9,7 +9,6 @@ export const Restaurant = ({ restaurant }) => {
             {restaurant && restaurant.menu && restaurant.menu.length > 0 ? (
                 <div className="mainContenet">
                     <div className="names">
-                        {restaurant.name}
                         <Menu menu={restaurant.menu} />
                         <Review reviews={restaurant.reviews} />
                         <ReviewForm />
