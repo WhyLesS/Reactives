@@ -1,8 +1,9 @@
 import { Layout } from './layout';
-import { Restaurant } from './Restaurant/restaurant';
 import { restaurants } from '../../materials/mock';
 import { useState } from 'react';
 import { ProgressBar } from './progress-bar';
+import { Restaurant } from './Restaurant/restaurant';
+import { CustomButton } from './custom-button/custom-button';
 import styles from './app.module.css';
 
 export const App = () => {
@@ -22,14 +23,13 @@ export const App = () => {
                 <div className={styles.tabContainer}>
                     {restaurants.length ? (
                         restaurants.map((rest) => (
-                            <button
-                                disabled={rest.id === restaurant.id}
-                                className={styles.tabButtons}
-                                key={rest.id}
-                                onClick={() => changeRestaurant(rest.id)}
-                            >
-                                <div>{rest.name}</div>
-                            </button>
+                            <>
+                                <CustomButton
+                                    onClick={() => changeRestaurant(rest.id)}
+                                    disabled={rest.id === restaurant.id}
+                                    text={rest.name}
+                                />
+                            </>
                         ))
                     ) : (
                         <div>Empty Restaurant</div>
