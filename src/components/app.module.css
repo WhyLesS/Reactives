@@ -1,7 +1,13 @@
 .bar{
-    background-color: #DC2626;
+    background-color: #ACCBC3;
     top: 0;
     position: fixed;
     height: 10px;
     left: 0;
+}
+
+
+
+.tabContainer {
+    display: flex;
 }

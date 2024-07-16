@@ -1,3 +1,7 @@
 export const Footer = () => {
-    return <footer>footer</footer>;
+    return (
+        <footer>
+            <center>Здесь могла бы быть ваша реклама!</center>
+        </footer>
+    );
 };

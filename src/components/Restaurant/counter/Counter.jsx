@@ -1,9 +1,17 @@
+import styles from './counter.module.css';
+
 export const Counter = ({ count, decrement, increment }) => {
     return (
-        <div>
-            <button onClick={increment}>+</button>
-            {count}
-            <button onClick={decrement}>-</button>
+        <div className={styles.counterContainer}>
+            <div>set your rating: {count}</div>
+            <div className={styles.buttonsContainer}>
+                <button className={styles.counterButton} onClick={increment}>
+                    +
+                </button>
+                <button className={styles.counterButton} onClick={decrement}>
+                    -
+                </button>
+            </div>
         </div>
     );
 };
