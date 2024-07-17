@@ -1,7 +1,13 @@
+import classNames from 'classnames';
+import { useTheme } from '../../theme-context/theme-context';
 import { CounterContainer } from '../counter/counter-container';
 import styles from './menu.module.css';
+import { useUser } from '../../user-context/user-context';
 
 export const Menu = ({ menu }) => {
+    const { value: theme } = useTheme();
+    const { value: user } = useUser();
+
     return (
         <div className={styles.menuContainer}>
             <h3>Menu positions</h3>
@@ -9,7 +15,13 @@ export const Menu = ({ menu }) => {
                 {/* я понимаю, что если у нас будет много элементов - они выйдут за границы
                     там придется гридом делать, но пока что просто так сделал */}
                 {menu.map((item, index) => (
-                    <div key={index} className={styles.positionContainer}>
+                    <div
+                        key={index}
+                        className={classNames(styles.positionContainer, {
+                            [styles.lightTheme]: theme === 'light',
+                            [styles.darkTheme]: theme === 'dark',
+                        })}
+                    >
                         <div>
                             {item.name} - {item.price}
                         </div>
@@ -25,9 +37,11 @@ export const Menu = ({ menu }) => {
                                 ))}
                             </div>
                         </div>
-                        <div className={styles.counterContainer}>
-                            <CounterContainer />
-                        </div>
+                        {user !== undefined ? (
+                            <div className={styles.counterContainer}>
+                                <CounterContainer />
+                            </div>
+                        ) : null}
                     </div>
                 ))}
             </div>
