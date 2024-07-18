@@ -11,14 +11,14 @@ export function useUser() {
 export function UserContextProvider({ children }) {
     const [user, setUser] = useState(undefined);
 
-    const authUser = useCallback(() => {
+    const toggleUserAuth = useCallback(() => {
         setUser((prevState) =>
             prevState === USER_DATA ? undefined : USER_DATA
         );
     }, []);
 
     return (
-        <UserContext.Provider value={{ value: user, authUser }}>
+        <UserContext.Provider value={{ value: user, toggleUserAuth }}>
             {children}
         </UserContext.Provider>
     );

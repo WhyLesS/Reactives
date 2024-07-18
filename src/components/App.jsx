@@ -27,15 +27,14 @@ export const App = () => {
                         <div className={styles.tabContainer}>
                             {restaurants.length ? (
                                 restaurants.map((rest) => (
-                                    <>
-                                        <CustomButton
-                                            onClick={() =>
-                                                changeRestaurant(rest.id)
-                                            }
-                                            disabled={rest.id === restaurant.id}
-                                            text={rest.name}
-                                        />
-                                    </>
+                                    <CustomButton
+                                        key={rest.id}
+                                        onClick={() =>
+                                            changeRestaurant(rest.id)
+                                        }
+                                        disabled={rest.id === restaurant.id}
+                                        text={rest.name}
+                                    />
                                 ))
                             ) : (
                                 <div>Empty Restaurant</div>

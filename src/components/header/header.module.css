@@ -10,10 +10,12 @@ header {
 
 .themeButton {
     margin-left: auto;
+    width: 160px;
 }
 
 .authButton {
     margin-right: auto;
+    width: 160px;
 }
 
 .lightHeader {
