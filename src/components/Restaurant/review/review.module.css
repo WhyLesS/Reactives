@@ -1,9 +1,15 @@
 .review {
     padding-bottom: 8px;
     padding-left: 8px;
-    background-color: #117479;
 }
 
+.lightTheme {
+    background-color: #ACCBC3;
+}
+
+.darkTheme {
+    background-color: #117479;
+}
 .comment {
     padding-left: 4px;
 }

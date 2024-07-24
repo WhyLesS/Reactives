@@ -1,9 +1,6 @@
 .tabButtons {
     font-family:Arial, Helvetica, sans-serif;
-    background-color:  #004048;
-    border-color: #ACCBC3;
     width: 100%;
-    color: #E7E0D8;
     font-size: 20px;
     font-weight: 1000;
     border-width: 4px;
@@ -11,5 +8,17 @@
 
 .tabButtons:disabled {
     background-color: #D2AD94;
+    color: #004048;
+}
+
+.darkTheme {
+    background-color:  #004048;
+    border-color: #ACCBC3;
+    color: #E7E0D8;
+}
+
+.lightTheme {
+    background-color: #ACCBC3;
+    border-color: #D2AD94;
     color: #004048;
 }

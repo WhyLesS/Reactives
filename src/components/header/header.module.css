@@ -1,8 +1,29 @@
 .title {
+    width: 100%;
     text-align: center;
 }
 
 header {
+    position: relative;
+    display: flex;
+}
+
+.themeButton {
+    margin-left: auto;
+    width: 160px;
+}
+
+.authButton {
+    margin-right: auto;
+    width: 160px;
+}
+
+.lightHeader {
     background-color: #E7E0D8;
     color: #004048;
+}
+
+.darkHeader {
+    background-color: #004048;
+    color: #E7E0D8;
 }
